@@ -1,0 +1,301 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.app-wrapper {
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ── Dark Theme ── */
+.app-wrapper.dark {
+  background: #0f1117;
+  color: #e2e8f0;
+}
+.app-wrapper.dark .card {
+  background: #1a1d27;
+  border: 1px solid #2d3148;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+.app-wrapper.dark input,
+.app-wrapper.dark select {
+  background: #0f1117;
+  border: 1px solid #2d3148;
+  color: #e2e8f0;
+}
+.app-wrapper.dark .history-table th {
+  background: #1e2235;
+}
+.app-wrapper.dark .history-table tr:nth-child(even) {
+  background: #161926;
+}
+
+/* ── Light Theme ── */
+.app-wrapper.light {
+  background: #f0f4f8;
+  color: #1a202c;
+}
+.app-wrapper.light .card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+.app-wrapper.light input,
+.app-wrapper.light select {
+  background: #f7fafc;
+  border: 1px solid #cbd5e0;
+  color: #1a202c;
+}
+.app-wrapper.light .history-table th {
+  background: #edf2f7;
+}
+.app-wrapper.light .history-table tr:nth-child(even) {
+  background: #f7fafc;
+}
+
+/* ── Header ── */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-icon { font-size: 1.6rem; }
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.theme-toggle {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08);
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+.theme-toggle:hover { background: rgba(255,255,255,0.15); }
+
+/* ── Card ── */
+.card {
+  border-radius: 16px;
+  padding: 28px;
+  margin: 20px auto;
+  max-width: 1100px;
+}
+
+/* ── Form Grid ── */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  opacity: 0.7;
+}
+.form-group input,
+.form-group select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #6366f1;
+}
+.form-group .hint {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  margin-top: 2px;
+}
+.form-group .error-msg {
+  font-size: 0.72rem;
+  color: #f87171;
+  margin-top: 2px;
+}
+
+/* ── Preset Buttons ── */
+.presets {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.preset-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.07);
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.82rem;
+  transition: all 0.2s;
+}
+.preset-btn:hover { background: rgba(99,102,241,0.25); border-color: #6366f1; }
+
+/* ── Buttons ── */
+.btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.btn-primary {
+  padding: 12px 28px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #4f46e5; }
+.btn-secondary {
+  padding: 12px 22px;
+  background: transparent;
+  border: 1px solid #6366f1;
+  color: #6366f1;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-secondary:hover { background: rgba(99,102,241,0.1); }
+.btn-export {
+  padding: 12px 22px;
+  background: transparent;
+  border: 1px solid #10b981;
+  color: #10b981;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-export:hover { background: rgba(16,185,129,0.1); }
+
+/* ── Demand Badge ── */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.badge-low { background: rgba(16,185,129,0.15); color: #10b981; }
+.badge-medium { background: rgba(251,191,36,0.15); color: #fbbf24; }
+.badge-high { background: rgba(239,68,68,0.15); color: #ef4444; }
+
+/* ── Section Title ── */
+.section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+/* ── History Table ── */
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.83rem;
+}
+.history-table th, .history-table td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.history-table th {
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.6;
+}
+
+/* ── Spinner ── */
+.spinner {
+  width: 22px; height: 22px;
+  border: 3px solid rgba(255,255,255,0.2);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Result Card ── */
+.result-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.result-label { opacity: 0.6; font-size: 0.9rem; margin-top: 6px; }
+
+/* ── Error ── */
+.error-box {
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #f87171;
+  font-size: 0.88rem;
+  margin-top: 12px;
+}
+
+/* ── Tabs ── */
+.tab-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 10px;
+}
+.tab-btn {
+  padding: 8px 18px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+  border-radius: 8px;
+  opacity: 0.5;
+  transition: all 0.2s;
+}
+.tab-btn.active {
+  background: rgba(99,102,241,0.2);
+  color: #818cf8;
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .form-grid { grid-template-columns: 1fr 1fr; }
+  .card { padding: 16px; margin: 12px; }
+}
